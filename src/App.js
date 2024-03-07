@@ -12,6 +12,7 @@ function App() {
     <Router>
       <div className="body">
         <Header />
+        <div>テストです。</div>
         <Routes>
           <Route path="/" element={<ProjectList />}/>
           <Route path="/completed_project" element={<CompletedProjectList />}/>
