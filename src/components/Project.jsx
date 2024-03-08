@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'; // Linkを追加
 import { db } from "./firebase.jsx";
 
 const Project = ({ id, company_id, project_name, appointed_day_of_delivery, phase }) => {
@@ -37,7 +38,14 @@ const Project = ({ id, company_id, project_name, appointed_day_of_delivery, phas
                         <td style={{width:'22%'}}>{company_name_desc}</td>
                         <td style={{width:'12%'}}>{appointed_day_of_delivery}</td>
                         <td style={{width:'10%'}}>{phase}</td>
-                        <td style={{width:'12%'}}><button>案件を編集</button></td>
+                        <td style={{width:'12%'}}>
+                            <Link to={"/project_edit"} state={{ id:id, company_id:company_id, project_name:project_name, appointed_day_of_delivery:appointed_day_of_delivery, phase:phase }}>
+                                案件を編集
+                            </Link>
+                            {/* <button
+                         onClick={() => { window.location.pathname = "/project_edit"; }}
+                         >案件を編集</button> */}
+                         </td>
                     </tr>
                 </tbody>
             </table>

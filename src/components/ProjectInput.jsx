@@ -28,7 +28,7 @@ export const ProjectInput = () => {
         }
     }, [companies]);
 
-    function sendCompanyData(e) {
+    function sendProjectData(e) {
         e.preventDefault();
 
         console.log(projectName, companyID, AppointedDayOfDelivery);
@@ -55,7 +55,7 @@ export const ProjectInput = () => {
     return (
         <div className="project_list">
             <div className="contentWidth spacer-section">
-                <form onSubmit={sendCompanyData}>
+                <form onSubmit={sendProjectData}>
                     <table className="tbl">
                         <tbody>
                             <tr>
@@ -78,7 +78,7 @@ export const ProjectInput = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <button onClick={() => { window.location.pathname = "/project_input"; }}>プロジェクトの追加</button>
+                    <button type="submit">プロジェクトの追加</button>
                 </form>
             </div>
         </div>
