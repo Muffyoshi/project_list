@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import {db} from "./firebase.jsx"
 
 export const ProjectInput = () => {
+    const [companies, setCompanies] = useState([]);
+    const [companyID, setCompanyID] = useState('');
+
     const [projectName, setProjectName] = useState('');
     const [AppointedDayOfDelivery, setAppointedDayOfDelivery] = useState('');
 
-    const [companies, setCompanies] = useState([]);
-    const [companyID, setCompanyID] = useState('');
 
     useEffect(() => {
         db.collection("company")
@@ -31,7 +32,6 @@ export const ProjectInput = () => {
     function sendProjectData(e) {
         e.preventDefault();
 
-        console.log(projectName, companyID, AppointedDayOfDelivery);
         db.collection('project').add({
             project_name:projectName,
             company_id:companyID,
@@ -40,6 +40,7 @@ export const ProjectInput = () => {
         })
         setProjectName("");
         setAppointedDayOfDelivery("");
+        window.location.pathname = "/";
     }
 
     function handleCompanyChange(e) {

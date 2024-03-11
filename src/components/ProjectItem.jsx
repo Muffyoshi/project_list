@@ -8,7 +8,6 @@ export const ProjectItem = () => {
     useEffect(() => {
         db.collection("project")
         .orderBy("appointed_day_of_delivery","desc")
-        .limit(50)
         .onSnapshot((snapShot) => {
             setProjects(snapShot.docs.map((doc) => ({
                 id: doc.id,

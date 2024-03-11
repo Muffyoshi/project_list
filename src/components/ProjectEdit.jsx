@@ -35,7 +35,7 @@ export const ProjectEdit = () => {
         e.preventDefault();
 
         console.log(projectName, companyID, AppointedDayOfDelivery, phaseData);
-        db.collection('project').add({
+        db.collection('project').doc(state.id).update({
             project_name:projectName,
             company_id:companyID,
             appointed_day_of_delivery:AppointedDayOfDelivery,
@@ -43,6 +43,7 @@ export const ProjectEdit = () => {
         })
         setProjectName("");
         setAppointedDayOfDelivery("");
+        window.location.pathname = "/";
     }
 
     function handleCompanyChange(e) {

@@ -8,7 +8,6 @@ export const CompanyInput = () => {
     function sendCompanyData(e) {
         e.preventDefault();
 
-        console.log(companyName,companyAddress,companyNameDesc);
         db.collection('company').add({
             company_name:companyName,
             company_address:companyAddress,

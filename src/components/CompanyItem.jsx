@@ -8,7 +8,6 @@ export const CompanyItem = () => {
     useEffect(() => {
         db.collection("company")
         .orderBy("company_name","asc")
-        .limit(50)
         .onSnapshot((snapShot) => {
             setCompanies(snapShot.docs.map((doc) => ({
                 id: doc.id,
