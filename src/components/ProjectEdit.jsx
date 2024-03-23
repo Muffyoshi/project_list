@@ -7,6 +7,10 @@ export const ProjectEdit = () => {
     const { state } = useLocation()
 
     const [projectName, setProjectName] = useState(state.project_name);
+    const [productName, setproductName] = useState(state.product_name);
+    const [unitVolume, setunitVolume] = useState(state.unit_volume);
+    const [unit, setUnit] = useState(state.unit);
+    const [unitPrice, setUnitPrice] = useState(state.unit_price);
     const [AppointedDayOfDelivery, setAppointedDayOfDelivery] = useState(state.appointed_day_of_delivery);
     const [phaseData, setphaseData] = useState(state.phase);
 
@@ -37,11 +41,19 @@ export const ProjectEdit = () => {
         console.log(projectName, companyID, AppointedDayOfDelivery, phaseData);
         db.collection('project').doc(state.id).update({
             project_name:projectName,
+            product_name:productName,
+            unit_volume:unitVolume,
+            unit:unit,
+            unit_price:unitPrice,
             company_id:companyID,
             appointed_day_of_delivery:AppointedDayOfDelivery,
             phase:phaseData,
         })
         setProjectName("");
+        setproductName("");
+        setunitVolume("");
+        setUnit("");
+        setUnitPrice("");
         setAppointedDayOfDelivery("");
         window.location.pathname = "/";
     }
@@ -82,6 +94,22 @@ export const ProjectEdit = () => {
                                         ))}
                                     </select>
                                 </td>
+                            </tr>
+                            <tr>
+                                <th>品名</th>
+                                <td><input type="text" onChange={(e) => setproductName(e.target.value)} onKeyDown={handleKeyDown} defaultValue={state.product_name}/></td>
+                            </tr>
+                            <tr>
+                                <th>数量</th>
+                                <td><input type="text" onChange={(e) => setunitVolume(e.target.value)} onKeyDown={handleKeyDown} defaultValue={state.unit_volume}/></td>
+                            </tr>
+                            <tr>
+                                <th>単位</th>
+                                <td><input type="text" onChange={(e) => setUnit(e.target.value)} onKeyDown={handleKeyDown} defaultValue={state.unit}/></td>
+                            </tr>
+                            <tr>
+                                <th>単価</th>
+                                <td><input type="text" onChange={(e) => setUnitPrice(e.target.value)} onKeyDown={handleKeyDown} defaultValue={state.unit_price}/></td>
                             </tr>
                             <tr>
                                 <th>納期</th>

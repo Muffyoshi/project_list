@@ -58,6 +58,9 @@ const Project = ({ id, company_id, project_name, appointed_day_of_delivery, phas
                         <td style={{width:'12%'}}>{appointed_day_of_delivery}</td>
                         <td style={{width:'10%'}}>{phase}</td>
                         <td style={{width:'12%'}}>
+                            {phase === '納品済み' && (
+                                <button>請求書作成</button>
+                            )}
                             <Link to={"/project_edit"} state={{ id:id, company_id:company_id, project_name:project_name, appointed_day_of_delivery:appointed_day_of_delivery, phase:phase }}>
                                 案件を編集
                             </Link>
