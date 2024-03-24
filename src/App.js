@@ -6,6 +6,7 @@ import { Header } from './components/Header';
 import { ProjectEdit } from './components/ProjectEdit';
 import { ProjectInput } from './components/ProjectInput';
 import { ProjectList } from './components/ProjectList';
+import { InvoiceForm } from './components/InvoiceForm';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/calendar" element={<Calendar />}/>
           <Route path="/project_input" element={<ProjectInput />}/>
           <Route path="/project_edit" element={<ProjectEdit />}/>
+          <Route path="/invoice_form" element={<InvoiceForm />}/>
         </Routes>
       </div>
     </Router>
